@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  redis:
+    image: redis:latest
+    networks:
+      - swarmlet-network
+    configs:
+      - swarmlet-config
+    deploy:
+      replicas: 1
+
+networks:
+  swarmlet-network:
+    external: true
+
+volumes:
+  # git-data:
+  #   external: true
+
+configs:
+  swarmlet-config:
+    file: ./swarmlet-config
