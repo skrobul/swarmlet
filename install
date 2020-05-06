@@ -58,6 +58,21 @@ while [[ "$#" > 0 ]]; do case "${1%=*}" in
   *) echo "Unknown argument: $1"; shift ;;
 esac; done
 
+# CLI wizard
+# if [ "$INTERACTIVE" == true ]; then
+#   echo "Specify the SSH public key to use for git deployments"
+#   read -p "(recommended) Press enter to use the default '/root/.ssh/authorized_keys': " GIT_SSH_AUTHORIZED_KEYS
+#   export GIT_SSH_AUTHORIZED_KEYS="${GIT_SSH_AUTHORIZED_KEYS:-/root/.ssh/authorized_keys}"
+
+#   read -p "(recommended) Install included services? (Y/N):" INSTALL_INCLUDED_SERVICES
+#   echo INSTALL_INCLUDED_SERVICES
+#   case $INSTALL_INCLUDED_SERVICES in
+#     yes|y|Y) "Install included services" ;;
+#     no|n|N) "Don't install included services" ;;
+#     *) "[ERROR] Unknown answer, exiting"
+#   esac
+# fi
+
 set -eo pipefail; [[ $DEBUG ]] && set -x
 
 install() {
